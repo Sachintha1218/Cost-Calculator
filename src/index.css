@@ -1,0 +1,214 @@
+:root {
+  --background: #EBEADD;
+  --surface: #ffffff;
+  --surface-hover: #f9f9f6;
+  --primary: #0E0E11;
+  --primary-hover: #2a2a35;
+  --secondary: #9b6cff; /* Keep a subtle highlight color if needed */
+  --text: #0E0E11;
+  --text-muted: #666666;
+  --border: #dcdbc6;
+  --danger: #d32f2f;
+  --success: #2e7d32;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300; /* Body Text: Montserrat Light */
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Typography styles */
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; /* H1 Mini Heading: Poppins SemiBold */
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; /* H2 Main Heading: Montserrat Bold */
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; /* H3 Sub Heading: Poppins Bold */
+}
+
+h4 {
+  font-weight: 600;
+}
+
+strong, b {
+  font-weight: 700;
+}
+
+/* Glassmorphism / Clean Panels */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #EBEADD;
+  box-shadow: 0 4px 10px rgba(14, 14, 17, 0.15);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(14, 14, 17, 0.2);
+}
+
+.btn-danger {
+  background: rgba(211, 47, 47, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(211, 47, 47, 0.2);
+}
+
+.btn-danger:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+  background: rgba(14, 14, 17, 0.05);
+  border-color: var(--primary);
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(14, 14, 17, 0.1);
+}
+
+/* Layout */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-right: 1px solid var(--border);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.02);
+}
+
+.sidebar-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary);
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+  letter-spacing: -0.5px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background: var(--surface-hover);
+  color: var(--primary);
+}
+
+.sidebar-link.active {
+  background: rgba(14, 14, 17, 0.05);
+  color: var(--primary);
+  border-left: 3px solid var(--primary);
+}
+
+.app-main {
+  flex: 1;
+  padding: 3rem;
+  max-width: calc(100vw - 260px);
+  overflow-y: auto;
+}
+
+/* Card layout grid */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
